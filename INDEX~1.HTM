@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parceria Aspra + My Broker — Condomínio Fechado em Uberlândia</title>
+  <meta name="description" content="More em condomínio fechado com parcelas a partir de R$ 700,00. Uma parceria oficial entre Aspra e My Broker em Uberlândia/MG."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Montserrat',sans-serif;background:#fff;color:#111;overflow-x:hidden}
+    .container{width:min(1200px,90%);margin:auto}
+    section{padding:90px 0}
+    h1,h2,h3{line-height:1.1}
+    h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.01em}
+    h3{font-size:22px;font-weight:700}
+    img{width:100%;display:block}
+
+    /* ===== BOTÃO CTA — mais destacado ===== */
+    .btn{
+      position:relative;
+      display:inline-flex;align-items:center;justify-content:center;gap:12px;
+      padding:20px 38px;border-radius:999px;
+      background:#0a2540;color:#fff;text-decoration:none;
+      font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;
+      box-shadow:0 14px 36px rgba(10,37,64,.32);
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+      border:none;cursor:pointer;overflow:hidden;
+    }
+    .btn::before{
+      content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,.18), transparent);
+      transform:skewX(-20deg);transition:left .6s ease;
+    }
+    .btn:hover{background:#143661;transform:translateY(-3px);box-shadow:0 22px 50px rgba(10,37,64,.5)}
+    .btn:hover::before{left:140%}
+    .btn .wa{width:22px;height:22px;fill:#25d366;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(37,211,102,.5))}
+    .btn .arrow{display:inline-block;transition:transform .25s ease}
+    .btn:hover .arrow{transform:translateX(4px)}
+    .btn-lg{padding:24px 48px;font-size:16px}
+    .btn-on-dark{
+      background:#fff;color:#0a2540;
+      box-shadow:0 16px 42px rgba(0,0,0,.45);
+    }
+    .btn-on-dark:hover{background:#e7ecf5;box-shadow:0 22px 56px rgba(58,106,212,.45)}
+
+    .eyebrow{
+      display:inline-block;font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+      font-weight:700;color:#0a2540;margin-bottom:18px;
+    }
+    .lead{font-size:18px;line-height:1.7;color:#555;margin-top:18px}
+
+    /* Bloco CTA repetido em todas as seções */
+    .section-cta{text-align:center;margin-top:72px}
+    .section-cta .cta-headline{
+      font-size:clamp(22px,2.6vw,34px);
+      font-weight:800;letter-spacing:-.01em;line-height:1.2;
+      max-width:760px;margin:0 auto 30px;color:#111;
+    }
+    .section-cta .cta-headline .price{
+      background:#0a2540;color:#fff;padding:2px 12px;
+      border-radius:8px;display:inline-block;
+      box-shadow:0 8px 24px rgba(10,37,64,.25);
+    }
+    .section-cta.on-dark .cta-headline{color:#fff}
+    .section-cta.on-dark .cta-headline .price{background:#fff;color:#0a2540}
+
+    /* ===== HERO ===== */
+    .hero{
+      min-height:100vh;
+      background:url('assets/hero-aerial.png') center/cover;
+      position:relative;display:flex;align-items:center;
+    }
+    .hero::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(105deg, rgba(0,0,0,.74) 0%, rgba(0,0,0,.5) 55%, rgba(0,0,0,.25) 100%);
+    }
+    .hero-content{position:relative;z-index:2;color:#fff;max-width:760px}
+    .hero-content .eyebrow{color:#cdd6e5}
+    .hero h1{
+      font-size:clamp(40px,6vw,72px);margin-bottom:24px;
+      font-weight:800;letter-spacing:-.02em;
+    }
+    .hero h1 .price{
+      background:#0a2540;padding:0 14px;border-radius:8px;display:inline-block;
+      box-shadow:0 10px 30px rgba(10,37,64,.55);
+    }
+    .hero p{
+      font-size:18px;line-height:1.7;margin-bottom:36px;
+      color:#e6eaf2;max-width:560px;
+    }
+
+    /* ===== BENEFÍCIOS ===== */
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
+    .benefit-card{
+      padding:36px 32px;border-radius:24px;background:#0a2540;color:#fff;
+      transition:transform .25s, box-shadow .25s;
+    }
+    .benefit-card:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(10,37,64,.35)}
+    .benefit-card .num{font-size:13px;font-weight:800;color:#7ea0e0;letter-spacing:.2em;margin-bottom:18px}
+    .benefit-card h3{margin:0 0 12px;color:#fff}
+    .benefit-card p{color:#b3bccf;font-size:15px;line-height:1.6}
+
+    /* ===== OS EMPREENDIMENTOS ===== */
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:48px}
+    .project-card{
+      border-radius:24px;overflow:hidden;background:#fff;
+      box-shadow:0 18px 50px rgba(10,37,64,.08);
+      display:flex;flex-direction:column;
+      transition:transform .3s, box-shadow .3s;
+    }
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(10,37,64,.16)}
+    .project-card .image{height:280px;background-position:center;background-size:cover;position:relative}
+    .project-card .number{
+      position:absolute;top:22px;left:22px;background:#fff;
+      padding:8px 16px;border-radius:999px;font-weight:800;
+      font-size:12px;letter-spacing:.15em;color:#0a2540;
+    }
+    .project-card .body{padding:32px;display:flex;flex-direction:column;flex:1}
+    .project-card h3{font-size:28px;margin-bottom:6px;letter-spacing:-.01em}
+    .project-card .sub{color:#777;font-size:14px;margin-bottom:22px;font-weight:500}
+    .project-card .specs{
+      display:flex;gap:24px;padding:20px 0;
+      border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:22px;
+    }
+    .project-card .spec b{display:block;color:#0a2540;font-weight:800;font-size:18px;margin-bottom:4px}
+    .project-card .spec span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#888}
+    .project-card a.link{
+      color:#0a2540;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:.04em;
+      margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;
+    }
+    .project-card a.link:hover{gap:12px}
+
+    /* ===== SOBRE (SPLIT) ===== */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .split img{border-radius:24px;height:520px;object-fit:cover}
+    .split.reverse > div:first-child{order:2}
+    .split ul{margin-top:24px;display:flex;flex-direction:column;gap:12px}
+    .split ul li{
+      list-style:none;padding-left:28px;position:relative;color:#444;
+      font-size:15.5px;line-height:1.6;
+    }
+    .split ul li::before{
+      content:'';position:absolute;left:0;top:11px;
+      width:16px;height:2px;background:#0a2540;
+    }
+
+    /* ===== GALERIA ===== */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+    .gallery .item{position:relative;border-radius:24px;overflow:hidden;height:320px}
+    .gallery .item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .gallery .item:hover img{transform:scale(1.05)}
+    .gallery .item::after{
+      content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.7));pointer-events:none;
+    }
+    .gallery .caption{
+      position:absolute;bottom:20px;left:20px;right:20px;color:#fff;
+      font-weight:700;font-size:13px;letter-spacing:.15em;text-transform:uppercase;z-index:2;
+    }
+
+    /* ===== LOCALIZAÇÃO ===== */
+    .location{background:#111;color:#fff}
+    .location .eyebrow{color:#7ea0e0}
+    .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .location .lead{color:#a8b4c8}
+    .location ul{margin-top:30px;display:flex;flex-direction:column;gap:14px}
+    .location ul li{
+      list-style:none;padding-left:32px;position:relative;color:#cdd6e5;font-size:15px;
+    }
+    .location ul li::before{
+      content:'';position:absolute;left:0;top:10px;width:20px;height:2px;background:#3a6ad4;
+    }
+    .location img{border-radius:24px;height:520px;object-fit:cover}
+
+    /* ===== CTA FINAL ===== */
+    .cta{background:#111;color:#fff;text-align:center;position:relative;overflow:hidden}
+    .cta::before{
+      content:'';position:absolute;top:-30%;right:-10%;width:60%;height:160%;
+      background:radial-gradient(ellipse at center, rgba(58,106,212,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .cta .container{position:relative;z-index:2}
+    .cta .eyebrow{color:#7ea0e0}
+    .cta h2{font-size:clamp(32px,5vw,52px);margin-bottom:20px;font-weight:800;letter-spacing:-.02em}
+    .cta p{font-size:17px;color:#bdbdbd;max-width:580px;margin:0 auto 36px;line-height:1.7}
+
+    footer{padding:50px 0;text-align:center;background:#000;color:#999;font-size:13px}
+    footer .footer-brand{color:#fff;font-weight:800;letter-spacing:.22em;font-size:14px;margin-bottom:12px}
+    footer .legal{max-width:780px;margin:18px auto 0;line-height:1.7;font-size:11px;color:#666}
+
+    @media(max-width:900px){
+      section{padding:70px 0}
+      .split, .location-grid, .benefits, .gallery, .projects{grid-template-columns:1fr}
+      .split.reverse > div:first-child{order:0}
+      .split img, .location img{height:380px}
+      .hero{min-height:85vh}
+      .project-card .specs{flex-wrap:wrap}
+      .btn{padding:18px 30px;font-size:14px}
+      .btn-lg{padding:20px 36px;font-size:15px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG sprite (definição única do ícone WhatsApp) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="wa-icon" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+    </symbol>
+  </svg>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="eyebrow">Projeto Militar</span>
+      <h1>More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h1>
+      <p>Lazer, segurança e exclusividade em uma parceria oficial entre Aspra e My Broker, em Uberlândia/MG.</p>
+      <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn btn-lg">
+        <svg class="wa"><use href="#wa-icon"/></svg>
+        Falar com consultor <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section>
+    <div class="container">
+      <span class="eyebrow">Por que escolher</span>
+      <h2>Sob medida para a família militar</h2>
+      <p class="lead" style="max-width:680px;">Tudo o que sua família precisa para viver bem em Uberlândia, com condições especiais para profissionais militares e bombeiros.</p>
+      <div class="benefits">
+        <div class="benefit-card">
+          <div class="num">01</div>
+          <h3>Condomínio fechado</h3>
+          <p>Segurança 24h, controle de acesso e tranquilidade para a sua família morar com liberdade.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="num">02</div>
+          <h3>Lazer completo</h3>
+          <p>Piscina, academia, espaço gourmet, playgrounds e áreas verdes dentro do condomínio.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="num">03</div>
+          <h3>FGTS aceito</h3>
+          <p>Entrada facilitada e financiamento Caixa com linhas habitacionais para servidores.</p>
+        </div>
+      </div>
+      <div class="section-cta">
+        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
+        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn">
+          <svg class="wa"><use href="#wa-icon"/></svg>
+          Falar com consultor <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OS EMPREENDIMENTOS -->
+  <section style="background:#fafafa;">
+    <div class="container">
+      <span class="eyebrow">Os empreendimentos</span>
+      <h2>Dois projetos. Uma parceria.</h2>
+      <p class="lead" style="max-width:680px;">Conheça os condomínios disponíveis na campanha Aspra + My Broker em Uberlândia. Role a página para ver os detalhes de cada um.</p>
+      <div class="projects">
+        <div class="project-card">
+          <div class="image" style="background-image:url('assets/monterre-fachada.png');">
+            <span class="number">01 · MONTERRÊ</span>
+          </div>
+          <div class="body">
+            <h3>Monterrê</h3>
+            <div class="sub">Casas em condomínio fechado · Ecopark · Zona Sul</div>
+            <div class="specs">
+              <div class="spec"><b>174</b><span>Unidades</span></div>
+              <div class="spec"><b>70,42 m²</b><span>Área privativa</span></div>
+              <div class="spec"><b>3 quartos</b><span>1 suíte</span></div>
+            </div>
+            <a href="#monterre" class="link">Ver detalhes do Monterrê →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="image" style="background-image:url('assets/pacaembu-fachada.png');">
+            <span class="number">02 · PACAEMBU</span>
+          </div>
+          <div class="body">
+            <h3>Pacaembu</h3>
+            <div class="sub">Casas planejadas · Loteamento · Uberlândia</div>
+            <div class="specs">
+              <div class="spec"><b>45,47 m²</b><span>Área da casa</span></div>
+              <div class="spec"><b>126 m²</b><span>Lote padrão</span></div>
+              <div class="spec"><b>1 vaga</b><span>Garagem</span></div>
+            </div>
+            <a href="#pacaembu" class="link">Ver detalhes do Pacaembu →</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
+        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn">
+          <svg class="wa"><use href="#wa-icon"/></svg>
+          Falar com consultor <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MONTERRÊ -->
+  <section id="monterre">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Empreendimento 01</span>
+        <h2>Monterrê. Casas em condomínio fechado.</h2>
+        <p class="lead">Primeiro condomínio fechado de casas do Ecopark, na Zona Sul de Uberlândia. Lazer completo, segurança 24h e moradia horizontal.</p>
+        <ul>
+          <li>174 unidades horizontais em 26.578m² de terreno</li>
+          <li>Casas de 70,42m² com 3 quartos, sendo 1 suíte</li>
+          <li>Sala e cozinha integradas + área gourmet com lavanderia</li>
+          <li>Garagem coberta e jardim interno em cada unidade</li>
+          <li>Churrasqueira a carvão entregue com a casa</li>
+        </ul>
+        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn" style="margin-top:34px;">
+          <svg class="wa"><use href="#wa-icon"/></svg>
+          Falar com consultor <span class="arrow">→</span>
+        </a>
+      </div>
+      <div><img src="assets/monterre-fachada.png" alt="Fachada do Monterrê"></div>
+    </div>
+  </section>
+
+  <!-- GALERIA MONTERRÊ -->
+  <section>
+    <div class="container">
+      <span class="eyebrow">Monterrê · Galeria</span>
+      <h2>Áreas comuns do condomínio</h2>
+      <div class="gallery">
+        <div class="item"><img src="assets/monterre-piscina.png" alt="Piscina"><div class="caption">Piscina</div></div>
+        <div class="item"><img src="assets/monterre-gourmet.png" alt="Espaço Gourmet"><div class="caption">Espaço Gourmet</div></div>
+        <div class="item"><img src="assets/monterre-academia.png" alt="Academia"><div class="caption">Academia</div></div>
+      </div>
+      <div class="section-cta">
+        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
+        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn">
+          <svg class="wa"><use href="#wa-icon"/></svg>
+          Falar com consultor <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE PACAEMBU -->
+  <section id="pacaembu" style="background:#fafafa;">
+    <div class="container split reverse">
+      <div>
+        <span class="eyebrow">Empreendimento 02</span>
+        <h2>Pacaembu. Casas planejadas para crescer.</h2>
+        <p class="lead">Loteamento planejado da maior construtora de casas do Brasil. Lotes a partir de 126m², casa pronta de 45,47m² e sistema de lazer completo.</p>
+        <ul>
+          <li>Casa de 45,47m² em lote padrão de 126m² (7×18)</li>
+          <li>Unidades não geminadas em alvenaria</li>
+          <li>Lavanderia externa, telhado em 3 águas, caixa d'água 500L</li>
+          <li>Pé-direito de 2,70m e garagem para 1 carro</li>
+          <li>Compatível com Minha Casa Minha Vida</li>
+        </ul>
+        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn" style="margin-top:34px;">
+          <svg class="wa"><use href="#wa-icon"/></svg>
+          Falar com consultor <span class="arrow">→</span>
+        </a>
+      </div>
+      <div><img src="assets/pacaembu-fachada.png" alt="Fachada do Pacaembu"></div>
+    </div>
+  </section>
+
+  <!-- GALERIA PACAEMBU -->
+  <section style="background:#fafafa;">
+    <div class="container">
+      <span class="eyebrow">Pacaembu · Galeria</span>
+      <h2>Sistema de lazer e ambientes</h2>
+      <div class="gallery">
+        <div class="item"><img src="assets/pacaembu-lazer.png" alt="Lazer"><div class="caption">Sistema de Lazer</div></div>
+        <div class="item"><img src="assets/pacaembu-planta.png" alt="Planta" style="object-fit:contain;background:#fff;"><div class="caption">Planta da Casa</div></div>
+        <div class="item"><img src="assets/pacaembu-implantacao.png" alt="Implantação" style="object-fit:contain;background:#fff;"><div class="caption">Implantação</div></div>
+      </div>
+      <div class="section-cta">
+        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
+        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn">
+          <svg class="wa"><use href="#wa-icon"/></svg>
+          Falar com consultor <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="location">
+    <div class="container">
+      <div class="location-grid">
+        <div>
+          <span class="eyebrow">Localização privilegiada</span>
+          <h2>Uma região que tem tudo para uma vida completa</h2>
+          <p class="lead">Em Uberlândia/MG, com fácil acesso às principais vias da cidade e em áreas em forte valorização.</p>
+          <ul>
+            <li>Próximo ao Uberlândia Shopping</li>
+            <li>Acesso direto pela Av. Nicomedes Alves dos Santos</li>
+            <li>Av. dos Vinhedos e Av. Seme Simão a poucos minutos</li>
+            <li>Parque Una, Colina Sul e áreas verdes na região</li>
+            <li>Infraestrutura completa de bairros planejados</li>
+          </ul>
+        </div>
+        <div><img src="assets/hero-aerial.png" alt="Vista aérea da região"></div>
+      </div>
+      <div class="section-cta on-dark">
+        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
+        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn btn-on-dark">
+          <svg class="wa"><use href="#wa-icon"/></svg>
+          Falar com consultor <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta" id="contato">
+    <div class="container">
+      <span class="eyebrow">Último passo</span>
+      <h2>Pronto para sair do aluguel?</h2>
+      <p>Garanta sua unidade hoje. Nosso consultor está disponível agora pelo WhatsApp para tirar suas dúvidas e simular as condições.</p>
+      <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn btn-on-dark btn-lg">
+        <svg class="wa"><use href="#wa-icon"/></svg>
+        Falar com consultor <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <foot
