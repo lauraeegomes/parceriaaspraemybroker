@@ -55,17 +55,53 @@
     /* Bloco CTA repetido em todas as seções */
     .section-cta{text-align:center;margin-top:72px}
     .section-cta .cta-headline{
-      font-size:clamp(22px,2.6vw,34px);
-      font-weight:800;letter-spacing:-.01em;line-height:1.2;
-      max-width:760px;margin:0 auto 30px;color:#111;
+      font-size:clamp(16px,1.8vw,22px);
+      font-weight:500;letter-spacing:0;line-height:1.4;
+      max-width:760px;margin:0 auto 26px;color:#444;
     }
     .section-cta .cta-headline .price{
-      background:#0a2540;color:#fff;padding:2px 12px;
-      border-radius:8px;display:inline-block;
-      box-shadow:0 8px 24px rgba(10,37,64,.25);
+      background:#0a2540;color:#fff;padding:2px 10px;
+      border-radius:6px;display:inline-block;font-weight:700;
+      box-shadow:0 6px 18px rgba(10,37,64,.2);
     }
-    .section-cta.on-dark .cta-headline{color:#fff}
+    .section-cta.on-dark .cta-headline{color:#cdd6e5}
     .section-cta.on-dark .cta-headline .price{background:#fff;color:#0a2540}
+
+    /* Header com logos da parceria */
+    .top-bar{
+      background:#fff;border-bottom:1px solid #ececec;
+      padding:14px 0;position:sticky;top:0;z-index:50;
+    }
+    .top-bar .container{
+      display:flex;align-items:center;justify-content:center;gap:36px;
+    }
+    .top-bar .logo{display:flex;align-items:center;gap:14px}
+    .top-bar img{height:36px;width:auto;display:block}
+    .top-bar .sep{
+      width:1px;height:36px;background:#dcdcdc;
+    }
+    .top-bar .partnership{
+      font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+      font-weight:800;color:#0a2540;text-align:center;
+    }
+    .top-bar .partnership small{
+      display:block;font-size:9px;font-weight:600;color:#888;
+      letter-spacing:.18em;margin-top:3px;
+    }
+
+    /* Preço destacado nos cards */
+    .project-card .price-tag{
+      display:flex;align-items:baseline;gap:8px;
+      padding:14px 0;margin-bottom:18px;
+      border-top:1px solid #eee;
+    }
+    .project-card .price-tag .from{
+      font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+      color:#888;font-weight:700;
+    }
+    .project-card .price-tag .value{
+      font-size:24px;font-weight:800;color:#0a2540;letter-spacing:-.01em;
+    }
 
     /* ===== HERO ===== */
     .hero{
@@ -88,8 +124,41 @@
       box-shadow:0 10px 30px rgba(10,37,64,.55);
     }
     .hero p{
-      font-size:18px;line-height:1.7;margin-bottom:36px;
-      color:#e6eaf2;max-width:560px;
+      font-size:clamp(18px,1.7vw,22px);line-height:1.6;margin-bottom:30px;
+      color:#fff;max-width:620px;font-weight:400;
+    }
+    .hero p strong{color:#fff;font-weight:700}
+
+    /* Seção dedicada da PARCERIA */
+    .partnership-hero{
+      background:#fff;padding:80px 0 70px;border-bottom:1px solid #eee;
+    }
+    .partnership-hero .container{
+      display:flex;flex-direction:column;align-items:center;
+      text-align:center;gap:30px;
+    }
+    .partnership-hero .label{
+      font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+      color:#0a2540;font-weight:800;
+    }
+    .partnership-hero .logos{
+      display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center;
+    }
+    .partnership-hero .logos img.mybroker{height:70px;width:auto;display:block}
+    .partnership-hero .logos img.aspra{height:100px;width:auto;display:block}
+    .partnership-hero .logos .sep{width:1px;height:70px;background:#dadada}
+    .partnership-hero h2{
+      font-size:clamp(28px,3.5vw,42px);font-weight:800;
+      color:#0a2540;letter-spacing:-.01em;max-width:760px;line-height:1.15;
+    }
+    .partnership-hero p{
+      font-size:17px;color:#666;max-width:620px;line-height:1.7;
+    }
+    @media(max-width:720px){
+      .partnership-hero .logos{gap:24px}
+      .partnership-hero .logos img.mybroker{height:50px}
+      .partnership-hero .logos img.aspra{height:72px}
+      .partnership-hero .logos .sep{display:none}
     }
 
     /* ===== BENEFÍCIOS ===== */
@@ -205,6 +274,18 @@
 </head>
 <body>
 
+  <!-- HEADER PARCERIA -->
+  <header class="top-bar">
+    <div class="container">
+      <div class="logo"><img src="assets/logo-mybroker.png" alt="My Broker"></div>
+      <div class="sep"></div>
+      <div class="partnership">Parceria Oficial<small>Aspra + My Broker</small></div>
+      <div class="sep"></div>
+      <div class="logo"><img src="assets/logo-aspra.png" alt="Aspra"></div>
+    </div>
+  </header>
+
+
   <!-- SVG sprite (definição única do ícone WhatsApp) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="wa-icon" viewBox="0 0 24 24">
@@ -217,11 +298,26 @@
     <div class="container hero-content">
       <span class="eyebrow">Projeto Militar</span>
       <h1>More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h1>
-      <p>Lazer, segurança e exclusividade em uma parceria oficial entre Aspra e My Broker, em Uberlândia/MG.</p>
+      <p>Lazer, segurança e exclusividade em Uberlândia/MG, com condições <strong>especiais para a família militar</strong>.</p>
       <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn btn-lg">
         <svg class="wa"><use href="#wa-icon"/></svg>
         Falar com consultor <span class="arrow">→</span>
       </a>
+    </div>
+  </section>
+
+
+  <!-- PARCERIA — seção dedicada -->
+  <section class="partnership-hero">
+    <div class="container">
+      <div class="label">Parceria Oficial</div>
+      <div class="logos">
+        <img src="assets/logo-mybroker.png" alt="My Broker" class="mybroker">
+        <div class="sep"></div>
+        <img src="assets/logo-aspra.png" alt="Aspra" class="aspra">
+      </div>
+      <h2>Aspra + My Broker juntas pela moradia da família militar</h2>
+      <p>Uma parceria oficial que aproxima profissionais militares e bombeiros associados da Aspra de condições especiais de moradia em Uberlândia/MG.</p>
     </div>
   </section>
 
@@ -277,6 +373,10 @@
               <div class="spec"><b>70,42 m²</b><span>Área privativa</span></div>
               <div class="spec"><b>3 quartos</b><span>1 suíte</span></div>
             </div>
+            <div class="price-tag">
+              <span class="from">A partir de</span>
+              <span class="value">R$ 465 mil</span>
+            </div>
             <a href="#monterre" class="link">Ver detalhes do Monterrê →</a>
           </div>
         </div>
@@ -292,6 +392,10 @@
               <div class="spec"><b>126 m²</b><span>Lote padrão</span></div>
               <div class="spec"><b>1 vaga</b><span>Garagem</span></div>
             </div>
+            <div class="price-tag">
+              <span class="from">A partir de</span>
+              <span class="value">R$ 247 mil</span>
+            </div>
             <a href="#pacaembu" class="link">Ver detalhes do Pacaembu →</a>
           </div>
         </div>
@@ -305,7 +409,6 @@
       </div>
     </div>
   </section>
-
   <!-- SOBRE MONTERRÊ -->
   <section id="monterre">
     <div class="container split">
@@ -340,7 +443,7 @@
         <div class="item"><img src="assets/monterre-academia.png" alt="Academia"><div class="caption">Academia</div></div>
       </div>
       <div class="section-cta">
-        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
+        <h3 class="cta-headline">Parcelas do Monterrê <span class="price">a partir de R$ 1.600,00</span></h3>
         <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn">
           <svg class="wa"><use href="#wa-icon"/></svg>
           Falar com consultor <span class="arrow">→</span>
@@ -383,7 +486,7 @@
         <div class="item"><img src="assets/pacaembu-implantacao.png" alt="Implantação" style="object-fit:contain;background:#fff;"><div class="caption">Implantação</div></div>
       </div>
       <div class="section-cta">
-        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
+        <h3 class="cta-headline">Parcelas do Pacaembu <span class="price">a partir de R$ 700,00</span></h3>
         <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn">
           <svg class="wa"><use href="#wa-icon"/></svg>
           Falar com consultor <span class="arrow">→</span>
@@ -391,7 +494,6 @@
       </div>
     </div>
   </section>
-
   <!-- LOCALIZAÇÃO -->
   <section class="location">
     <div class="container">
@@ -410,13 +512,6 @@
         </div>
         <div><img src="assets/hero-aerial.png" alt="Vista aérea da região"></div>
       </div>
-      <div class="section-cta on-dark">
-        <h3 class="cta-headline">More em condomínio fechado com parcelas a partir de <span class="price">R$ 700,00</span></h3>
-        <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn btn-on-dark">
-          <svg class="wa"><use href="#wa-icon"/></svg>
-          Falar com consultor <span class="arrow">→</span>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -428,10 +523,22 @@
       <p>Garanta sua unidade hoje. Nosso consultor está disponível agora pelo WhatsApp para tirar suas dúvidas e simular as condições.</p>
       <a href="https://wa.me/553491769864?text=Ol%C3%A1%2C%20Vin%C3%ADcius.%20Gostaria%20de%20saber%20mais%20sobre%20a%20parceria%20entre%20Aspra%20e%20My%20Broker." target="_blank" rel="noopener" class="btn btn-on-dark btn-lg">
         <svg class="wa"><use href="#wa-icon"/></svg>
-        Falar com consultor <span class="arrow">→</span>
+        Falar com consultor <span class="arrow">&rarr;</span>
       </a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <foot
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:16px;">
+      <img src="assets/logo-mybroker-white.png" alt="My Broker" style="height:36px;width:auto;display:block;">
+      <div style="width:1px;height:32px;background:#333;"></div>
+      <img src="assets/logo-aspra.png" alt="Aspra" style="height:46px;width:auto;display:block;">
+    </div>
+    <div class="footer-brand">PARCERIA OFICIAL ASPRA + MY BROKER</div>
+    <div>Uberlândia/MG · CRECI 6567</div>
+    <div class="legal">My Broker Soluções Imobiliárias. Os empreendimentos apresentados são de incorporação de terceiros; a My Broker atua na intermediação imobiliária.</div>
+  </footer>
+
+</body>
+</html>
